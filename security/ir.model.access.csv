@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_web_data_extraction_web_data_extraction,web_data_extraction.web_data_extraction,model_web_data_extraction_web_data_extraction,,1,0,0,0
