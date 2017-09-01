@@ -1,22 +1,21 @@
 <odoo>
     <data>
-        <!-- <template id="listing"> -->
-        <!--   <ul> -->
-        <!--     <li t-foreach="objects" t-as="object"> -->
-        <!--       <a t-attf-href="#{ root }/objects/#{ object.id }"> -->
-        <!--         <t t-esc="object.display_name"/> -->
-        <!--       </a> -->
-        <!--     </li> -->
-        <!--   </ul> -->
-        <!-- </template> -->
-        <!-- <template id="object"> -->
-        <!--   <h1><t t-esc="object.display_name"/></h1> -->
-        <!--   <dl> -->
-        <!--     <t t-foreach="object._fields" t-as="field"> -->
-        <!--       <dt><t t-esc="field"/></dt> -->
-        <!--       <dd><t t-esc="object[field]"/></dd> -->
-        <!--     </t> -->
-        <!--   </dl> -->
-        <!-- </template> -->
+        <template id="web_data_extraction.target_url" name="web_extraction_fill_target_url">
+            <form>
+                请输入目标网址:
+                <br/>
+                <input type="text" name="target_url"/>
+                <br/>
+                <br/>
+                <input type="submit" value="提交"/>
+            </form>
+        </template>
+
+        <template id="assets_web_data_extraction_backend" name="Web Data Extraction Assets" inherit_id="web.assets_backend" priority="18">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/web_data_extraction/static/src/js/web_data_extraction.js"></script>
+            </xpath>
+        </template>
+
     </data>
 </odoo>
