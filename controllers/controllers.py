@@ -2,6 +2,7 @@
 from odoo import http
 import urllib2
 import sys
+import re
 reload(sys)
 sys.setdefaultencoding('utf8')
 
@@ -16,13 +17,21 @@ class WebDataExtraction(http.Controller):
             idx += len('<head>')
             dom = '<base href="' + target_url + '"/>'
             html = html[:idx] + dom + html[idx:]
+
+        # remove original js script
+        regex = r"<script.*?</script>"
+        reobj = re.compile(regex, re.S)
+        html, number = reobj.subn("", html)
+
         # add click control JS
         idx = html.index('</head>')
         if idx != -1:
             file_path = "/web_data_extraction/static/src/js/iframe_click.js"
             click_js = '<script src="' + source_url + file_path + '">' + "</script>"
             html = html[:idx] + click_js + html[idx:]
-            print(html)
+            file_path= "/web/static/lib/jquery/jquery.js"
+            jquery = '<script src="' + source_url + file_path + '">' + "</script>"
+            html = html[:idx] + jquery + html[idx:]
 
         return {
             'html': html
