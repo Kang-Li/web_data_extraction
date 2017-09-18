@@ -1,13 +1,13 @@
 <odoo>
   <data>
-      <menuitem name="Web Data Extract" id="web_data_extract_root" sequence="70"/>
+      <menuitem name="Web Data Extraction" id="web_data_extract_root" sequence="70"/>
 
       <record id="action_web_data_extraction" model="ir.actions.client">
             <field name="name">Web Data Extraction</field>
             <field name="tag">web_data_extraction.main</field>
       </record>
 
-      <menuitem name="Web Extraction" id="web_data_extract"
+      <menuitem name="Web Data Extraction" id="web_data_extract"
                 parent="web_data_extract_root" sequence="1" action="action_web_data_extraction"/>
 
   </data>
